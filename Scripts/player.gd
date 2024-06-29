@@ -4,6 +4,7 @@ class_name Player
 @onready var muzzle = $Muzzle
 
 signal laser_shot(laser_scene, location)
+signal player_killed
 
 const SPEED = 100.0
 
@@ -29,4 +30,5 @@ func shoot():
 	laser_shot.emit(laser, muzzle.global_position)
 
 func die():
+	player_killed.emit()
 	queue_free()
