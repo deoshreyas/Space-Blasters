@@ -1,17 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl8tm0quxapfy"]
+[gd_scene load_steps=4 format=3 uid="uid://cl8tm0quxapfy"]
 
 [ext_resource type="PackedScene" uid="uid://dddcal0ja4de3" path="res://Scenes/enemy.tscn" id="1_ropvd"]
 [ext_resource type="Texture2D" uid="uid://npidwk84bsij" path="res://Assets/Sprites/EnemyShip2.png" id="2_5eii1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ys2g"]
+size = Vector2(14, 13)
+
 [node name="DiverEnemy" instance=ExtResource("1_ropvd")]
 speed = 120.0
 hp = 1
+points = 5
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_5eii1")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_6ys2g")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="2"]
 rect = Rect2(-5, -50, 10, 20)

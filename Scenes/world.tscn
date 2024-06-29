@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtc1glgqwdv6l"]
+[gd_scene load_steps=9 format=3 uid="uid://dtc1glgqwdv6l"]
 
 [ext_resource type="PackedScene" uid="uid://bb58688jb2gt4" path="res://Scenes/player_ship.tscn" id="1_e2ab8"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_m8hcd"]
 [ext_resource type="PackedScene" uid="uid://dddcal0ja4de3" path="res://Scenes/enemy.tscn" id="3_ob5gl"]
 [ext_resource type="PackedScene" uid="uid://cl8tm0quxapfy" path="res://Scenes/diver_enemy.tscn" id="3_vnda0"]
+[ext_resource type="PackedScene" uid="uid://tmwpovd577a2" path="res://Scenes/hud.tscn" id="4_do26r"]
+[ext_resource type="PackedScene" uid="uid://b77yphcs0a1ys" path="res://Scenes/game_over_screen.tscn" id="4_my2vy"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_blicj"]
 a = Vector2(93, -22.75)
@@ -11,7 +13,7 @@ b = Vector2(-87, -22.75)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_p6dh1"]
 a = Vector2(0, 320)
-b = Vector2(0, 185)
+b = Vector2(0, 0)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_m8hcd")
@@ -34,11 +36,11 @@ position = Vector2(90, 280)
 collision_layer = 8
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Boundaries"]
-position = Vector2(87, 341.75)
+position = Vector2(87, 342.75)
 shape = SubResource("SegmentShape2D_blicj")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Boundaries"]
-position = Vector2(87, 208)
+position = Vector2(87, 23)
 shape = SubResource("SegmentShape2D_blicj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries"]
@@ -52,6 +54,13 @@ shape = SubResource("SegmentShape2D_p6dh1")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverScreen" parent="UILayer" instance=ExtResource("4_my2vy")]
+
+[node name="HUD" parent="UILayer" instance=ExtResource("4_do26r")]
+mouse_filter = 2
 
 [connection signal="laser_shot" from="PlayerShip" to="." method="_on_player_ship_laser_shot"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

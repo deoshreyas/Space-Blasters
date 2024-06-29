@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://mdo6dxapo18d" path="res://Assets/Sprites/EnemyShip.png" id="1_vs6mm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m86y1"]
-size = Vector2(14, 13)
+size = Vector2(24, 24)
 
 [node name="Enemy" type="Area2D"]
 collision_layer = 2
