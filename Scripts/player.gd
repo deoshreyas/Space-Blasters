@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var muzzle = $Muzzle
 
@@ -26,3 +27,6 @@ func _physics_process(delta):
 
 func shoot():
 	laser_shot.emit(laser, muzzle.global_position)
+
+func die():
+	queue_free()

@@ -8,6 +8,7 @@ size = Vector2(22, 24)
 
 [node name="PlayerShip" type="CharacterBody2D"]
 position = Vector2(91, 280)
+collision_mask = 10
 script = ExtResource("1_hjhg0")
 metadata/_edit_group_ = true
 
